@@ -8,6 +8,22 @@ provider:
   memorySize: 128
   region: ap-northeast-1
   stage: dev
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - 'ssm:GetParameters'
+          Resource:
+            !Join
+              - ''
+              - - 'arn:'
+                - !Ref AWS::Partition
+                - ':ssm:'
+                - !Ref AWS::Region
+                - ':'
+                - !Ref AWS::AccountId
+                - ':parameter/*'
 
 plugins:
   - serverless-prune-plugin
