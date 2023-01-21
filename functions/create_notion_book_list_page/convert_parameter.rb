@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 def parent(database_id:)
   {
     database_id: database_id
   }
 end
 
-def properties(author_name:, author_url:, book_title:, book_url:)
+def properties(author_name:, author_url:, book_title:, book_url:) # rubocop:disable Metrics/MethodLength
   {
     'Name': {
       'title': [
@@ -37,7 +39,7 @@ def properties(author_name:, author_url:, book_title:, book_url:)
       }
     },
     "#{URL_LABEL}": {
-      "type": "url",
+      "type": 'url',
       "url": book_url
     }
   }
