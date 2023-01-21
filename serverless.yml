@@ -15,15 +15,8 @@ provider:
           Action:
             - 'ssm:GetParameters'
           Resource:
-            !Join
-              - ''
-              - - 'arn:'
-                - !Ref AWS::Partition
-                - ':ssm:'
-                - !Ref AWS::Region
-                - ':'
-                - !Ref AWS::AccountId
-                - ':parameter/*'
+            - !Join ['', ['arn:', !Ref AWS::Partition, ':ssm:', !Ref AWS::Region, ':', !Ref AWS::AccountId, ':parameter/line_notion_database_id']]
+            - !Join ['', ['arn:', !Ref AWS::Partition, ':ssm:', !Ref AWS::Region, ':', !Ref AWS::AccountId, ':parameter/line_notion_integration_token']]
 
 plugins:
   - serverless-prune-plugin
