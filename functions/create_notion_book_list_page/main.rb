@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 require 'notion-ruby-client'
 require_relative './const'
-require_relative './generate_parameter'
-require_relative './get_secret_parameters'
+require_relative './convert_parameter'
+require_relative './secrets'
 
 def handler(*)
   # secret params
-  database_id, notion_integration_token = get_secret_parameters
+  database_id, notion_integration_token = secrets
 
   # Notion client
   client = Notion::Client.new(token: notion_integration_token)
@@ -15,16 +17,18 @@ def handler(*)
 
   # TODO: line から受け取った値にする
   # param2: properties
-  author_name = "keisuke"
-  author_url = "https://twitter.com/sa20220304"
-  book_title = "my book"
-  book_url = 'https://developers.notion.com/reference/property-value-object'
-  properties = properties(
-    author_name: author_name,
-    author_url: author_url,
-    book_title: book_title,
-    book_url: book_url
-  )
+  properties = properties(**dummy_properties)
 
   client.create_page(parent: parent, properties: properties)
+end
+
+private
+
+def dummy_properties
+  {
+    author_name: 'keisuke',
+    author_url: 'https://twitter.com/sa20220304',
+    book_title: 'my book',
+    book_url: 'https://developers.notion.com/reference/property-value-object'
+  }
 end
