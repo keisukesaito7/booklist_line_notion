@@ -1,0 +1,17 @@
+{
+  "name": "repo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "package_dev": "sls package --stage dev",
+    "deploy_dev": "sls deploy --stage dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-prune-plugin": "^2.0.1",
+    "serverless-ruby-layer": "^1.6.0"
+  }
+}
