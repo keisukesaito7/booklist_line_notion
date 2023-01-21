@@ -12,4 +12,6 @@ gem 'rexml'
 # https://navarasu.github.io/serverless-ruby-layer/#/exclude_dev_test_gems
 group :development do
   gem 'rubocop'
+  gem 'rubocop-performance'
+  gem 'rubocop-rspec'
 end
