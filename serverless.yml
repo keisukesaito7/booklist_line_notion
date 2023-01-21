@@ -1,4 +1,4 @@
-service: booklist_line_notion
+service: bookListNotionPage
 
 frameworkVersion: '3'
 
@@ -28,9 +28,6 @@ custom:
       - createNotionBookListPage
 
 functions:
-  hello:
-    handler: functions/hello_world.handler
-    description: Simple Hello, World
   createNotionBookListPage:
     handler: functions/create_notion_book_list_page/main.handler
     description: create new page to notion book list database
