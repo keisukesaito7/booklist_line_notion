@@ -25,12 +25,12 @@ custom:
     includeLayers: true
   rubyLayer:
     include_functions:
-      - httparty
+      - createNotionBookListPage
 
 functions:
   hello:
     handler: functions/hello_world.handler
     description: Simple Hello, World
-  httparty:
-    handler: functions/httparty.handler
-    description: change description (using gem)
+  createNotionBookListPage:
+    handler: functions/create_notion_book_list_page/main.handler
+    description: create new page to notion book list database

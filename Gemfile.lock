@@ -1,13 +1,64 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (7.0.4.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
     ast (2.4.2)
-    httparty (0.21.0)
-      mini_mime (>= 1.0.0)
-      multi_xml (>= 0.5.2)
+    aws-eventstream (1.2.0)
+    aws-partitions (1.697.0)
+    aws-sdk-core (3.169.0)
+      aws-eventstream (~> 1, >= 1.0.2)
+      aws-partitions (~> 1, >= 1.651.0)
+      aws-sigv4 (~> 1.5)
+      jmespath (~> 1, >= 1.6.1)
+    aws-sdk-ssm (1.148.0)
+      aws-sdk-core (~> 3, >= 3.165.0)
+      aws-sigv4 (~> 1.1)
+    aws-sigv4 (1.5.2)
+      aws-eventstream (~> 1, >= 1.0.2)
+    concurrent-ruby (1.1.10)
+    dotenv (2.8.1)
+    faraday (1.10.3)
+      faraday-em_http (~> 1.0)
+      faraday-em_synchrony (~> 1.0)
+      faraday-excon (~> 1.1)
+      faraday-httpclient (~> 1.0)
+      faraday-multipart (~> 1.0)
+      faraday-net_http (~> 1.0)
+      faraday-net_http_persistent (~> 1.0)
+      faraday-patron (~> 1.0)
+      faraday-rack (~> 1.0)
+      faraday-retry (~> 1.0)
+      ruby2_keywords (>= 0.0.4)
+    faraday-em_http (1.0.0)
+    faraday-em_synchrony (1.0.0)
+    faraday-excon (1.1.0)
+    faraday-httpclient (1.0.1)
+    faraday-multipart (1.0.4)
+      multipart-post (~> 2)
+    faraday-net_http (1.0.1)
+    faraday-net_http_persistent (1.2.0)
+    faraday-patron (1.0.0)
+    faraday-rack (1.0.0)
+    faraday-retry (1.0.3)
+    faraday_middleware (1.2.0)
+      faraday (~> 1.0)
+    hashie (5.0.0)
+    i18n (1.12.0)
+      concurrent-ruby (~> 1.0)
+    jmespath (1.6.2)
     json (2.6.3)
-    mini_mime (1.1.2)
-    multi_xml (0.6.0)
+    minitest (5.17.0)
+    multipart-post (2.2.3)
+    notion-ruby-client (1.0.0)
+      activesupport (>= 6)
+      dotenv
+      faraday (>= 1.0)
+      faraday_middleware
+      hashie (~> 5)
     parallel (1.22.1)
     parser (3.2.0.0)
       ast (~> 2.4.1)
@@ -27,13 +78,18 @@ GEM
     rubocop-ast (1.24.1)
       parser (>= 3.1.1.0)
     ruby-progressbar (1.11.0)
+    ruby2_keywords (0.0.5)
+    tzinfo (2.0.5)
+      concurrent-ruby (~> 1.0)
     unicode-display_width (2.4.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  httparty
+  aws-sdk-ssm
+  notion-ruby-client
+  rexml
   rubocop
 
 BUNDLED WITH
