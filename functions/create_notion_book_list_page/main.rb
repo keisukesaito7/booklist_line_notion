@@ -32,5 +32,3 @@ def dummy_properties
     book_url: 'https://developers.notion.com/reference/property-value-object'
   }
 end
-
-handler()
