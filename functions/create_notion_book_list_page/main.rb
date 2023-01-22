@@ -2,10 +2,11 @@
 
 require 'notion-ruby-client'
 require_relative './const'
-require_relative './convert_parameter'
+require_relative './properties'
 require_relative './secrets'
+require_relative './input_parameters'
 
-def handler(*)
+def handler(**kwargs)
   # secret params
   database_id, notion_integration_token = secrets
 
@@ -13,22 +14,16 @@ def handler(*)
   client = Notion::Client.new(token: notion_integration_token)
 
   # param1: parent
-  parent = parent(database_id: database_id)
+  parent = { database_id: database_id }
 
-  # TODO: line から受け取った値にする
-  # param2: properties
-  properties = properties(**dummy_properties)
+  # param2: parameters from LINE
+  book_title, book_url = input_parameters(kwargs[:event])
+  properties = properties(**wip_properties(
+    book_title: book_title,
+    book_url: book_url
+  ))
 
   client.create_page(parent: parent, properties: properties)
-end
 
-private
-
-def dummy_properties
-  {
-    author_name: 'keisuke',
-    author_url: 'https://twitter.com/sa20220304',
-    book_title: 'my book',
-    book_url: 'https://developers.notion.com/reference/property-value-object'
-  }
+  { statusCode: 200, body: JSON.generate('New Page is created !!') }
 end

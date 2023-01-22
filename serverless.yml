@@ -23,9 +23,9 @@ plugins:
   - serverless-ruby-layer
 
 package:
+  individually: true
   patterns:
     - '!./**'
-    - 'functions/**'
 
 custom:
   prune:
@@ -40,3 +40,10 @@ functions:
   createNotionBookListPage:
     handler: functions/create_notion_book_list_page/main.handler
     description: create new page to notion book list database
+    package:
+      patterns:
+        - 'functions/create_notion_book_list_page/**'
+    events:
+      - httpApi:
+          path: /create_page
+          method: POST
