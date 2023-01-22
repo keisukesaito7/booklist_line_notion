@@ -10,5 +10,6 @@ def handler(**kwargs)
 
   # MEMO: body は string じゃないと怒られた
   # internal server error が返された
-  { statusCode: 200, body: kwargs[:event] }
+  # ERROR: { statusCode: 200, body: kwargs[:event] }
+  { statusCode: 200, body: 'This is test !' }
 end
