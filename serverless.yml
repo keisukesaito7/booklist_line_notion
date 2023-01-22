@@ -47,13 +47,3 @@ functions:
       - httpApi:
           path: /create_page
           method: POST
-  lineTest:
-    handler: functions/line_test/main.handler
-    description: Test to see what is requested from line
-    package:
-      patterns:
-        - 'functions/line_test/**'
-    events:
-      - httpApi:
-          path: /check_line_parameters
-          method: POST
