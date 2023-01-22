@@ -20,6 +20,8 @@ def handler(*)
   properties = properties(**dummy_properties)
 
   client.create_page(parent: parent, properties: properties)
+
+  { statusCode: 200, body: JSON.generate('Hello from Lambda!') }
 end
 
 private
