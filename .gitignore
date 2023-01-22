@@ -54,3 +54,7 @@ build-iPhoneSimulator/
 
 # package directories
 node_modules
+
+# ignore functions
+functions/json_format
+
