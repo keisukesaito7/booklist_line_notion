@@ -1,11 +1,5 @@
 # frozen_string_literal: true
 
-def parent(database_id:)
-  {
-    database_id: database_id
-  }
-end
-
 def properties(author_name:, author_url:, book_title:, book_url:) # rubocop:disable Metrics/MethodLength
   {
     'Name': {
@@ -42,5 +36,15 @@ def properties(author_name:, author_url:, book_title:, book_url:) # rubocop:disa
       "type": 'url',
       "url": book_url
     }
+  }
+end
+
+# TODO: author_name とかを取れるようになったら削除 OK
+def wip_properties(book_title:, book_url:)
+  {
+    author_name: '未入力',
+    author_url: 'https://example.com', # URL 形式じゃないとエラー出るので注意
+    book_title: book_title,
+    book_url: book_url
   }
 end
